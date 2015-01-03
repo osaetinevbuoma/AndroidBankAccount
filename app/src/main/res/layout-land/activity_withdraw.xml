@@ -10,6 +10,7 @@
         android:id="@+id/withdraw_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:text="@string/withdraw_edit_text"/>
 
     <Button
