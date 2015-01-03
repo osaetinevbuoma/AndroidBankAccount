@@ -2,17 +2,20 @@ package com.modnsolutions.bankaccount;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
 
 public class Deposit extends ActionBarActivity implements View.OnClickListener {
+    private static String TAG = "com.modnsolutions.bankaccount.Deposit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +51,20 @@ public class Deposit extends ActionBarActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        EditText editText = (EditText) findViewById(R.id.deposit_edit_text);
-        Double deposit = Double.parseDouble(editText.getText().toString());
+        try {
+            EditText editText = (EditText) findViewById(R.id.deposit_edit_text);
+            Double deposit = Double.parseDouble(editText.getText().toString());
 
-        Globals.bankAccount.setDeposit(deposit);
+            Globals.bankAccount.setDeposit(deposit);
 
-        DecimalFormat decimalFormat = new DecimalFormat("###,###.##");
-        String output = decimalFormat.format(deposit);
+            DecimalFormat decimalFormat = new DecimalFormat("###,###.##");
+            String output = decimalFormat.format(deposit);
 
-        TextView textView = (TextView) findViewById(R.id.deposit_text_view);
-        textView.setText("$ " + output);
+            TextView textView = (TextView) findViewById(R.id.deposit_text_view);
+            textView.setText("$ " + output);
+        } catch (NumberFormatException e) {
+            Log.e(TAG, e.getMessage());
+            Toast.makeText(this, "Deposit cannot be empty", Toast.LENGTH_LONG).show();
+        }
     }
 }

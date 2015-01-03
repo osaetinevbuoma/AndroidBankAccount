@@ -2,6 +2,7 @@ package com.modnsolutions.bankaccount;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 
 public class Withdraw extends ActionBarActivity implements View.OnClickListener {
+    private static String TAG = "com.modnsolutions.bankaccount.Withdraw";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +25,21 @@ public class Withdraw extends ActionBarActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        TextView textView = (TextView) findViewById(R.id.withdraw_text_view);
-        Double withdraw = Double.parseDouble(textView.getText().toString());
-        Double balance = Globals.bankAccount.getDeposit() - Globals.bankAccount.getWithdraw();
-        if (withdraw > balance) {
-            Toast.makeText(this, "You cannot withdraw more than your balance " +
-                    "($ " + balance + ")", Toast.LENGTH_LONG).show();
-        } else {
-            Globals.bankAccount.setWithdraw(withdraw);
-            Toast.makeText(this, "You have withdrawn $ " + withdraw.toString(), Toast.LENGTH_LONG).show();
+        try {
+            TextView textView = (TextView) findViewById(R.id.withdraw_text_view);
+            Double withdraw = Double.parseDouble(textView.getText().toString());
+            Double balance = Globals.bankAccount.getDeposit() - Globals.bankAccount.getWithdraw();
+            if (withdraw > balance) {
+                Toast.makeText(this, "You cannot withdraw more than your balance " +
+                        "($ " + balance + ")", Toast.LENGTH_LONG).show();
+            } else {
+                Globals.bankAccount.setWithdraw(withdraw);
+                Toast.makeText(this, "You have withdrawn $ " + withdraw.toString(), Toast.LENGTH_LONG).show();
 
+            }
+        } catch (NumberFormatException e) {
+            Log.e(TAG, e.getMessage());
+            Toast.makeText(this, "Please enter a value to withdraw", Toast.LENGTH_LONG).show();
         }
     }
 
