@@ -9,11 +9,11 @@ public class BankAccount {
     private Double withdraw = 0.00;
 
     public void setDeposit(Double deposit) {
-        this.deposit = deposit;
+        this.deposit += deposit;
     }
 
     public void setWithdraw(Double withdraw) {
-        this.withdraw = withdraw;
+        this.withdraw += withdraw;
     }
 
     public Double getDeposit() {
