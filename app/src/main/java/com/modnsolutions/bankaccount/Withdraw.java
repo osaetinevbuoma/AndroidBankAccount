@@ -25,12 +25,13 @@ public class Withdraw extends ActionBarActivity implements View.OnClickListener 
     public void onClick(View view) {
         TextView textView = (TextView) findViewById(R.id.withdraw_text_view);
         Double withdraw = Double.parseDouble(textView.getText().toString());
-        if (withdraw > Globals.bankAccount.getDeposit()) {
-            Toast.makeText(this, "You cannot withdraw more than your deposit " +
-                    "($ " + Globals.bankAccount.getDeposit() + ")", Toast.LENGTH_LONG).show();
+        Double balance = Globals.bankAccount.getDeposit() - Globals.bankAccount.getWithdraw();
+        if (withdraw > balance) {
+            Toast.makeText(this, "You cannot withdraw more than your balance " +
+                    "($ " + balance + ")", Toast.LENGTH_LONG).show();
         } else {
             Globals.bankAccount.setWithdraw(withdraw);
-            Toast.makeText(this, "You have withdraw $ " + withdraw.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "You have withdrawn $ " + withdraw.toString(), Toast.LENGTH_LONG).show();
 
         }
     }
