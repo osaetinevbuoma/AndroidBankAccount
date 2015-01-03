@@ -16,6 +16,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Deposit"
+            android:label="@string/title_activity_deposit"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.modnsolutions.bankaccount.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Withdraw"
+            android:label="@string/title_activity_withdraw"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.modnsolutions.bankaccount.MainActivity" />
+        </activity>
+        <activity
+            android:name=".CheckBalance"
+            android:label="@string/title_activity_check_balance"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.modnsolutions.bankaccount.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

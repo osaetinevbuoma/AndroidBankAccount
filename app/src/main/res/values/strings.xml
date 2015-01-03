@@ -5,4 +5,24 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Main Activity -->
+    <string name="deposit">Deposit Money</string>
+    <string name="withdraw">Withdraw Money</string>
+    <string name="check_balance">Check Balance</string>
+    <string name="copyright">MOD\'N Solutions 2015</string>
+    <string name="title_activity_deposit">Deposit Money</string>
+
+    <!-- Deposit Money -->
+    <string name="deposit_hint">Deposit Amount ($)</string>
+    <string name="title_activity_withdraw">Withdraw</string>
+
+    <!-- Withdraw Money -->
+    <string name="withdraw_edit_text">Withdraw Amount ($)</string>
+    <string name="title_activity_check_balance">Check Balance</string>
+
+    <!-- Check Balance -->
+    <string name="previous_amount">Previous Amount&#160;&#160;</string>
+    <string name="last_withdrawal">Last Withdrawal&#160;&#160;</string>
+    <string name="balance">Balance&#160;&#160;</string>
+
 </resources>
