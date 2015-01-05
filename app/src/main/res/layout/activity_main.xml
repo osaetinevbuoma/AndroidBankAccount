@@ -1,55 +1,68 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/app_name"
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".MainActivity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:gravity="center"
-        android:textSize="@dimen/app_name"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/app_name"
-        android:src="@drawable/logo"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:textSize="@dimen/app_name"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
-    <Button
-        android:id="@+id/deposit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
-        android:text="@string/deposit" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/app_name"
+            android:src="@drawable/logo"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:contentDescription="Bank Account Logo" />
 
-    <Button
-        android:id="@+id/withdraw"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/deposit"
-        android:text="@string/withdraw" />
+        <Button
+            android:id="@+id/deposit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:text="@string/deposit" />
 
-    <Button
-        android:id="@+id/check_balance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/withdraw"
-        android:text="@string/check_balance"/>
+        <Button
+            android:id="@+id/withdraw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/deposit"
+            android:text="@string/withdraw" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/copyright"/>
+        <Button
+            android:id="@+id/check_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/withdraw"
+            android:text="@string/check_balance"/>
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/check_balance"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/text_size"
+            android:text="@string/copyright"/>
+
+    </RelativeLayout>
+
+</ScrollView>
