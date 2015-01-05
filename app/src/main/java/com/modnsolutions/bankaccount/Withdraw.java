@@ -7,12 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class Withdraw extends ActionBarActivity implements View.OnClickListener {
     private static String TAG = "com.modnsolutions.bankaccount.Withdraw";
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,8 @@ public class Withdraw extends ActionBarActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         try {
-            TextView textView = (TextView) findViewById(R.id.withdraw_text_view);
-            Double withdraw = Double.parseDouble(textView.getText().toString());
+            editText = (EditText) findViewById(R.id.withdraw_text_view);
+            Double withdraw = Double.parseDouble(editText.getText().toString());
             Double balance = Globals.bankAccount.getDeposit() - Globals.bankAccount.getWithdraw();
             if (withdraw > balance) {
                 Toast.makeText(this, "You cannot withdraw more than your balance " +
@@ -39,7 +41,7 @@ public class Withdraw extends ActionBarActivity implements View.OnClickListener 
             }
         } catch (NumberFormatException e) {
             Log.e(TAG, e.getMessage());
-            Toast.makeText(this, "Please enter a value to withdraw", Toast.LENGTH_LONG).show();
+            editText.setError("Enter value to withdraw");
         }
     }
 

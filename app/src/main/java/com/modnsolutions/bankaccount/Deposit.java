@@ -16,6 +16,7 @@ import java.text.DecimalFormat;
 
 public class Deposit extends ActionBarActivity implements View.OnClickListener {
     private static String TAG = "com.modnsolutions.bankaccount.Deposit";
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class Deposit extends ActionBarActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         try {
-            EditText editText = (EditText) findViewById(R.id.deposit_edit_text);
+            editText = (EditText) findViewById(R.id.deposit_edit_text);
             Double deposit = Double.parseDouble(editText.getText().toString());
 
             Globals.bankAccount.setDeposit(deposit);
@@ -64,7 +65,7 @@ public class Deposit extends ActionBarActivity implements View.OnClickListener {
             textView.setText("$ " + output);
         } catch (NumberFormatException e) {
             Log.e(TAG, e.getMessage());
-            Toast.makeText(this, "Deposit cannot be empty", Toast.LENGTH_LONG).show();
+            editText.setError("Enter a deposit amount");
         }
     }
 }
